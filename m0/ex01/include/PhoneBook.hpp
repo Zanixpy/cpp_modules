@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 09:22:42 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/24 12:00:31 by omawele          ###   ########.fr       */
+/*   Updated: 2026/07/24 14:54:30 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ class PhoneBook
         void displayContact(std::string &input);
         int setContact(int index);
     public:
+        PhoneBook(void);
+        ~PhoneBook(void);
         void add(void);
         void search(void);
 };

@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 09:26:59 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/24 12:02:29 by omawele          ###   ########.fr       */
+/*   Updated: 2026/07/24 16:00:31 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -195,6 +195,12 @@ int PhoneBook::setContact(int index)
         return (1);
     return (0);  
 }
+
+// Constructor
+
+PhoneBook::PhoneBook(void) {}
+
+PhoneBook::~PhoneBook(void) {}
 
 
 
