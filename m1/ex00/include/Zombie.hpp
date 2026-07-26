@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.hpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/23 09:22:42 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/26 17:57:47 by omawele          ###   ########.fr       */
+/*   Created: 2026/07/26 18:13:55 by omawele           #+#    #+#             */
+/*   Updated: 2026/07/26 18:26:05 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-#include "Contact.hpp"
 #include <iostream>
-#include <cctype>
-#include <cstdio>
-#include <cstdlib>
 
-class PhoneBook
+class Zombie
 {
     private:
-        Contact mContacts[8];
-        int mOldest_one;
-        int displayContacts(void);
-        void displayContact(std::string &input);
-        bool setContact(int index);
+        std::string name;
     public:
-        PhoneBook(void);
-        ~PhoneBook(void);
-        void add(void);
-        void search(void);
-        int getSlotIndex(void);
-
+        Zombie(void);
+        ~Zombie();
+        void announce(void);
+        void setName(std::string str);
 };
 
 
-#endif
+
+
+
+#endif 
