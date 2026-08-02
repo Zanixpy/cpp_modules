@@ -1,0 +1,9 @@
+{
+  "name": "C Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "focal"
+    }
+  }
+}

@@ -6,12 +6,13 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 09:22:49 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/24 12:07:42 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/02 12:00:09 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 #include <cctype>
+#include <cstring>
 
 
 int main(int ac, char **av)

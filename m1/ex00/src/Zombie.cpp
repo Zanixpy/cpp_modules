@@ -6,27 +6,27 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/26 18:18:44 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/26 18:25:45 by omawele          ###   ########.fr       */
+/*   Updated: 2026/07/27 07:50:00 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(void)
+Zombie::Zombie( void ) {}
+
+Zombie::~Zombie( void ) 
 {
-    this->name = "Foo";
+    std::cout << "Name: " << this->name << '\n';
 }
 
-Zombie::~Zombie() {}
-
-void Zombie::announce(void)
+void Zombie::announce( void )
 {
     if (this->name.empty())
         return;
-    std::cout << this->name << ": BraiiiiiiinnnzzzZ...";
+    std::cout << this->name << ": BraiiiiiiinnnzzzZ...\n";
 }
 
-void Zombie::setName(std::string str)
+void Zombie::setName( std::string str )
 {
     if (str.empty())
         return;

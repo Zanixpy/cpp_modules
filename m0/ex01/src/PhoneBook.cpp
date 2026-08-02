@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 09:26:59 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/26 18:07:14 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/02 12:40:25 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,14 @@ int PhoneBook::displayContacts(void)
 { 
     if (this->mContacts[0].isContactValid() == false)
     {
-        std::cout << "There's no contact !" << std::endl;
+        std::cout << "There's no contact !\n";
         return (1);
     }
     print_str("index", 0, 0);
     print_str("first name", 1, 0);
     print_str("last name", 1, 0);
     print_str("nickname", 1, 1);
-    std::cout << std::endl;
+    std::cout << '\n';
     for (int index = 0; index < 8; index++)
     {
         if (this->mContacts[index].isContactValid() == false)
@@ -78,7 +78,7 @@ int PhoneBook::displayContacts(void)
         print_str(this->mContacts[index].getFirstName(), 0, 0);
         print_str(this->mContacts[index].getLastName(), 0, 0);
         print_str(this->mContacts[index].getNickname(), 0, 1);    
-        std::cout << std::endl;
+        std::cout << '\n';
     }   
     return (0);
 }
@@ -88,15 +88,15 @@ void PhoneBook::displayContact(std::string &input)
     int nb = atoi(input.c_str());
     if (this->mContacts[nb].isContactValid() == false)
     {
-        std::cout << "Type a number associated to a saved contact !" << std::endl;
+        std::cout << "Type a number associated to a saved contact !\n";
         return;
     }
-    std::cout << std::endl << "Contact " << nb << std::endl;
-    std::cout << "First name: " << this->mContacts[nb].getFirstName() << std::endl;
-    std::cout << "Last name: " << this->mContacts[nb].getLastName() << std::endl;
-    std::cout << "Nickname: " << this->mContacts[nb].getNickname() << std::endl;
-    std::cout << "Phone number: " << this->mContacts[nb].getPhoneNumber() << std::endl;
-    std::cout << "Darkest secret: " << this->mContacts[nb].getDarkestSecret() << std::endl << std::endl;
+    std::cout << "\nContact " << nb << '\n';
+    std::cout << "First name: " << this->mContacts[nb].getFirstName() << '\n';
+    std::cout << "Last name: " << this->mContacts[nb].getLastName() << '\n';
+    std::cout << "Nickname: " << this->mContacts[nb].getNickname() << '\n';
+    std::cout << "Phone number: " << this->mContacts[nb].getPhoneNumber() << '\n';
+    std::cout << "Darkest secret: " << this->mContacts[nb].getDarkestSecret() << '\n' << '\n';
 }
 
 int PhoneBook::getSlotIndex(void)
@@ -117,11 +117,11 @@ void PhoneBook::add(void)
     
     if (this->setContact(index))
     {
-        std::cout << "Error: can't have empty fields." << std::endl;     
+        std::cout << "Error: can't have empty fields.\n";     
         return;   
     }
     else
-        std::cout << "New contact created !" << std::endl;
+        std::cout << "New contact created !\n";
     if (this->mContacts[7].isContactValid() && index == 7)
         this->mOldest_one =  0;
     else if (this->mContacts[7].isContactValid() && index != 7)
@@ -135,10 +135,12 @@ void PhoneBook::search(void)
     std::string input;
     std::cout << "Select contact: ";
     std::getline(std::cin, input);
+    if (std::cin.eof())
+        std::cout << '\n'; 
     if (isNumberValid(input))
         this->displayContact(input);
     else
-        std::cout << "Type a number associated to a saved contact !" << std::endl;
+        std::cout << "Type a number associated to a saved contact !\n";
 }
 
 // SETTER FUNCTIONS
@@ -150,22 +152,47 @@ bool PhoneBook::setContact(int index)
 
     std::cout << "Enter the first name: ";
     std::getline(std::cin, input);
+    if (std::cin.eof())
+    {
+        std::cout << '\n'; 
+        return (true);    
+    }
     contact.setFirstName(input);
 
     std::cout << "Enter the last name: ";
     std::getline(std::cin, input);
+    if (std::cin.eof())
+    {
+        std::cout << '\n'; 
+        return (true);    
+    }
     contact.setLastName(input);
 
     std::cout << "Enter the nickname: ";
     std::getline(std::cin, input);
+    if (std::cin.eof())
+    {
+        std::cout << '\n'; 
+        return (true);    
+    }
     contact.setNickname(input);
 
     std::cout << "Enter the phone number: ";
     std::getline(std::cin, input);
+    if (std::cin.eof())
+    {
+        std::cout << '\n'; 
+        return (true);    
+    }
     contact.setPhoneNumber(input);
 
     std::cout << "Enter the darkest secret: ";
     std::getline(std::cin, input);
+    if (std::cin.eof())
+    {
+        std::cout << '\n'; 
+        return (true);    
+    }
     contact.setDarkestSecret(input);
 
     if (contact.isContactValid() == false)
@@ -173,7 +200,6 @@ bool PhoneBook::setContact(int index)
     this->mContacts[index] = contact; 
     return (false);  
 }
-
 
 
 // Constructor

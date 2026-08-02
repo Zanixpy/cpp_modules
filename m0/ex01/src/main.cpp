@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/23 09:23:29 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/26 17:34:32 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/02 12:28:33 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,14 @@ int main(void)
             phone_book.search();
         else if (input == "EXIT")
             break;
+        if (std::cin.eof() == 1)
+            return (1);
         std::cout << "Enter a command: ";
-    } 
+    }
+    if (std::cin.eof() == 1)
+    {
+        std::cout << '\n';
+        return (1);
+    }
     return (0);
 }

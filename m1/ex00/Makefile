@@ -5,8 +5,9 @@ CXXFLAGS = -g3 -Wall -Werror -Wextra -std=c++98
 NAME = zombie
 
 SRCS =  src/main.cpp \
-		src/PhoneBook.cpp \
-		src/Contact.cpp
+		src/newZombie.cpp \
+		src/randomChump.cpp \
+		src/Zombie.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

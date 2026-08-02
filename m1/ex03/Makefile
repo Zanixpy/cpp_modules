@@ -1,0 +1,33 @@
+CXX = c++
+
+CXXFLAGS = -g3 -Wall -Werror -Wextra -std=c++98
+
+NAME = violence
+
+SRCS =  src/main.cpp \
+		src/HumanA.cpp \
+		src/HumanB.cpp \
+		src/Weapon.cpp 
+
+OBJS = $(SRCS:.cpp=.o)
+
+HEADERS = include
+INCLUDES = -I $(HEADERS)
+
+all: $(NAME)
+
+$(NAME): $(OBJS)
+	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
+
+clean:
+	-rm -rf $(OBJS)
+
+fclean: clean
+	-rm -rf $(NAME)
+
+re: fclean all
+
+.PHONY: all clean fclean re
