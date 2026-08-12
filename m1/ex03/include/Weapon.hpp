@@ -22,7 +22,7 @@ class Weapon
     public:
         Weapon( const std::string type );
         ~Weapon( void );
-        const std::string& getType( void );
+        const std::string& getType( void ) const;
         void setType( const std::string str );
 };
 

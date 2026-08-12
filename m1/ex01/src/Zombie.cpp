@@ -14,18 +14,20 @@
 
 Zombie::Zombie( void ) {}
 
+Zombie::Zombie( std::string name ) : m_name(name) {}
+
 Zombie::~Zombie( void ) {}
 
 void Zombie::announce( void )
 {
-    if (this->name.empty())
+    if (this->m_name.empty())
         return;
-    std::cout << this->name << ": BraiiiiiiinnnzzzZ...\n";
+    std::cout << this->m_name << ": BraiiiiiiinnnzzzZ...\n";
 }
 
 void Zombie::setName( std::string str )
 {
     if (str.empty())
         return;
-    this->name = str;      
+    this->m_name = str;      
 }

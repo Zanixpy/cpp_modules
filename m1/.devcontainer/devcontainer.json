@@ -1,0 +1,35 @@
+{
+  "name": "Ubuntu C Dev",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+
+  // Dossier du projet dans le conteneur
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+
+  // Monte ton code dans le conteneur
+  "mounts": [
+    "source=${localWorkspaceFolder},target=/workspaces/${localWorkspaceFolderBasename},type=bind"
+  ],
+
+  // Extensions VS Code utiles pour le C/C++
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-vscode.cpptools-extension-pack",
+        "ms-vscode.cpptools-themes",
+        "ms-vscode.makefile-tools",
+        "ms-vscode.cmake-tools",
+        "llvm-vs-code-extensions.vscode-clangd"
+      ],
+      "settings": {
+        "C_Cpp.intelliSenseEngine": "disabled",
+        "clangd.path": "/usr/bin/clangd"
+      }
+    }
+  },
+
+  // Utilisateur normal dans le conteneur
+  "remoteUser": "vscode"
+}

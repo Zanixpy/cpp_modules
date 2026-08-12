@@ -16,12 +16,14 @@ Weapon::Weapon( const std::string type ) : m_type( type ) {}
 
 Weapon::~Weapon( void ) {}
 
-const std::string& Weapon::getType( void ) 
+const std::string& Weapon::getType( void ) const
 {
     return this->m_type;
 }
 
 void Weapon::setType( const std::string str )
 {
+    if (str.empty())
+        return;
     this->m_type = str; 
 }

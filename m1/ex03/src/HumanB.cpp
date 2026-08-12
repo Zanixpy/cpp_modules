@@ -11,12 +11,13 @@
 /* ************************************************************************** */
 
 #include "HumanB.hpp"
+#include <cstddef>
 
 HumanB::HumanB( std::string name ) : m_name(name), m_weapon(NULL) {}
 
 HumanB::~HumanB( void ) {}
 
-const std::string& HumanB::getWeaponType( void ) 
+const std::string& HumanB::getWeaponType( void ) const 
 {
     return this->m_weapon->getType();
 }
