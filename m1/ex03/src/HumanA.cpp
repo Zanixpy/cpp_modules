@@ -12,11 +12,11 @@
 
 #include "HumanA.hpp"
 
-HumanA::HumanA( std::string name, Weapon &weapon ) : m_name(name), m_weapon(weapon) {}
+HumanA::HumanA( std::string const name, Weapon &weapon ) : m_name(name), m_weapon(weapon) {}
 
 HumanA::~HumanA( void ) {}
 
-const std::string& HumanA::getWeaponType( void ) 
+const std::string& HumanA::getWeaponType( void ) const
 {
     return this->m_weapon.getType();
 }

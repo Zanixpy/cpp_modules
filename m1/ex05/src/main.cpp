@@ -18,7 +18,6 @@ int main (int ac, char **av)
     
     if (ac != 2)
         return 1;  
-    std::string input = av[1];
-    harl.complain(input);
+    harl.complain(av[1]);
     return 0;
 }

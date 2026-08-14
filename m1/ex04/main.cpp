@@ -44,18 +44,16 @@ int main( int ac, char **av)
     std::string sub;
     std::string sub2;
     size_t find_s1;
-    int len_end;
     while (getline(fileIN, line))
     {
-        if (!fileIN.eof())
-            line += '\n';  
         while ((find_s1 = line.find(av[2])) != std::string::npos)
         {
-            sub = line.substr(0, find_s1) + av[3];    
-            len_end = line.length() - (strlen(av[2]) + sub.length() - 1);
-            sub2 = line.substr(find_s1 + strlen(av[2]), len_end);
+            sub = line.substr(0, find_s1) + av[3]; 
+            sub2 = line.substr(find_s1 + strlen(av[2]));
             line = sub + sub2; 
         }
+        if (!fileIN.eof())
+            line += '\n'; 
         fileOUT << line;
     }
 
