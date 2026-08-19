@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 08:18:41 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/28 11:11:16 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/19 07:59:05 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ class Fixed
 {  
     private:
         int                 m_fixed_point_nb;
-        static int const    m_frac_bits = 8;
-        
+        static int const    m_frac_bits = 8;     
     public:
         Fixed();
         Fixed( int const nb );
@@ -51,9 +50,7 @@ class Fixed
         static Fixed &  max( Fixed  &a, Fixed  &b );
         static Fixed const &  min( Fixed const &a, Fixed const &b );
         static Fixed &  min( Fixed  &a, Fixed  &b );
-
-  
-
+        
         int     getRawBits( void ) const;
         void    setRawBits( int const raw );
         float   toFloat( void ) const;

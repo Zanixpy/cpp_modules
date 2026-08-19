@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 08:19:13 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/28 11:01:36 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/17 07:18:41 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ int  Fixed::toInt( void ) const
 float Fixed::toFloat( void ) const
 {
     float tmp;
-    tmp = this->m_fixed_point_nb;
+    tmp = this->m_fixed_point_nb / this->m_frac_bits;
     return tmp / (1 << this->m_frac_bits);
 }
 

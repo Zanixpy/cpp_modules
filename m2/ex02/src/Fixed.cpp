@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 08:19:13 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/28 11:01:36 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/19 08:25:22 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ std::ostream& operator<<( std::ostream & o, Fixed const &other)
     return o;
 }
 
-
 // COMPARISON OPERATORS
 
 bool Fixed::operator>( const Fixed& other ) const
@@ -117,7 +116,6 @@ bool Fixed::operator!=( const Fixed& other ) const
 {
     return this->m_fixed_point_nb != other.getRawBits();
 }
-
 
 // ARITHMETIC OPERATORS
 

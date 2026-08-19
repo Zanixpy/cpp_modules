@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 08:18:41 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/28 10:57:50 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/14 12:19:12 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class Fixed
         Fixed( float const nb );
         ~Fixed();
         Fixed( const Fixed& other);
-        Fixed&  operator=( const Fixed& other);
+        Fixed&  operator=( const Fixed& other );
         int     getRawBits( void ) const;
         void    setRawBits( int const raw );
         float   toFloat( void ) const;
