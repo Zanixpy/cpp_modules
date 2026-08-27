@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/28 13:06:24 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/29 05:57:23 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/27 06:09:09 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ class ClapTrap
         unsigned int        m_energy_points;
         unsigned int        m_attack_damage;   
     public:
-        ClapTrap( const std::string name );
+        ClapTrap( const std::string &name );
         ClapTrap( const ClapTrap &other );
         ClapTrap& operator=( const ClapTrap &other );
         ~ClapTrap();
@@ -33,9 +33,5 @@ class ClapTrap
         bool  checkEnergyPoints();
         bool  checkHitPoints();
     };
-
-
-
-
-
+    
 #endif

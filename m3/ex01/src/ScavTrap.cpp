@@ -6,13 +6,13 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 05:53:45 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/29 06:49:45 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/27 06:09:35 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
-ScavTrap::ScavTrap( std::string const name ) : ClapTrap(name)
+ScavTrap::ScavTrap( std::string const &name ) : ClapTrap(name)
 {
     std::cout << "ScavTrap construtor called\n";
     this->m_attack_damage = 20;

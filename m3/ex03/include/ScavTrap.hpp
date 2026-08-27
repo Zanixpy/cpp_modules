@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 05:51:17 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/29 07:39:27 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/27 14:28:17 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class ScavTrap : virtual public ClapTrap
 {
     public:
-        ScavTrap( std::string const name );
+        ScavTrap( std::string const &name );
         ~ScavTrap();
         ScavTrap( ScavTrap const &other );
         ScavTrap& operator=( ScavTrap const &other );

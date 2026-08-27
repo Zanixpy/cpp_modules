@@ -7,7 +7,6 @@ NAME = scavTrap
 SRCS =  src/main.cpp \
 		src/ClapTrap.cpp \
 		src/ScavTrap.cpp \
-		src/FragTrap.cpp
 
 OBJS = $(SRCS:.cpp=.o)
 

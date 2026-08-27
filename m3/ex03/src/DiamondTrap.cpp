@@ -6,13 +6,15 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 07:28:47 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/29 08:37:20 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/27 06:46:11 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "DiamondTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-DiamondTrap::DiamondTrap( const std::string name ) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
+DiamondTrap::DiamondTrap( const std::string &name ) : ClapTrap(name + "_clap_name"), ScavTrap(name), FragTrap(name)
 {
     std::cout << "DiamondTrap construtor called\n";
     this->m_name = name;
@@ -31,6 +33,8 @@ DiamondTrap& DiamondTrap::operator=( const DiamondTrap& other )
     if (this != &other)
     {
         ClapTrap::operator=(other);
+        FragTrap::operator=(other);
+        ScavTrap::operator=(other);
         this->m_name = other.m_name;
     }
     return *this;

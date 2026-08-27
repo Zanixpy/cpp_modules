@@ -6,13 +6,13 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 07:00:00 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/29 07:24:15 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/27 14:29:19 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
-FragTrap::FragTrap( std::string const name ) : ClapTrap(name)
+FragTrap::FragTrap( std::string const &name ) : ClapTrap(name)
 {
     std::cout << "FragTrap construtor called\n";
     this->m_attack_damage = 30;

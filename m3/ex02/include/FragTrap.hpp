@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 07:00:13 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/29 07:18:19 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/27 14:29:32 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 class FragTrap : public ClapTrap
 {
     public:
-        FragTrap( std::string const name );
+        FragTrap( std::string const &name );
         FragTrap( const FragTrap& other);
         FragTrap& operator=(const FragTrap& other);
         ~FragTrap();
