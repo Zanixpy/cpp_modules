@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 09:27:51 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/30 06:46:04 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/28 06:48:33 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void Cat::setIdea(int index, std::string const& idea)
     this->m_brain->setIdea(index, idea);
 }
 
-std::string const& Cat::getIdea(int index) const
+std::string const Cat::getIdea(int index) const
 {
     return this->m_brain->getIdea(index);
 }

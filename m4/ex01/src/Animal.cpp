@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 08:57:03 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/29 10:23:40 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/27 15:17:20 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ Animal::Animal()
     std::cout << "Animal constructor called\n";
 }
 
-Animal::Animal( const std::string type ) : m_type(type) 
+Animal::Animal( const std::string &type ) : m_type(type) 
 {
     std::cout << "Animal constructor with string arg called\n";
 }

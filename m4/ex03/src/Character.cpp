@@ -6,13 +6,13 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 08:51:17 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/31 07:51:27 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/28 17:54:56 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Character.hpp"
 
-Character::Character( std::string const name ) : m_name(name)
+Character::Character( std::string const &name ) : m_name(name)
 {
     std::cout << "Character constructor called\n";
     for (int i = 0; i < 4; i++)

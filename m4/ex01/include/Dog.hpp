@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 10:20:43 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/30 06:30:37 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/28 06:36:17 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ class Dog : public Animal
         Dog& operator=( const Dog& other );
         ~Dog();
         void setIdea(int index, std::string const& idea);
-        std::string const& getIdea(int index) const;
+        std::string const getIdea(int index) const;
         virtual void makeSound() const;
 };
 

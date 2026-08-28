@@ -6,11 +6,13 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 13:04:45 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/30 06:45:08 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/28 06:34:52 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Brain.hpp"
+#include <cstddef>
+#include <string>
 
 Brain::Brain()
 {
@@ -41,10 +43,16 @@ Brain::~Brain()
 
 void Brain::setIdea(int index, std::string const& idea)
 {
+    if (index < 0 || index > 99)
+        return;
     this->ideas[index] = idea;
 }
 
-std::string const& Brain::getIdea(int index) const
-{
+std::string const Brain::getIdea(int index) const
+{  
+    if (index < 0 || index > 99)
+        return std::string();
+    if (this->ideas[index].empty())
+        return std::string();
     return this->ideas[index];
 }

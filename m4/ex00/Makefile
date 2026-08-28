@@ -10,7 +10,9 @@ NAME = polymorphism
 SRC = 	src/main.cpp \
 		src/Animal.cpp \
 		src/Cat.cpp \
-		src/Dog.cpp 
+		src/Dog.cpp \
+		src/WrongCat.cpp \
+		src/WrongAnimal.cpp
 
 OBJS = $(SRC:.cpp=.o)
 

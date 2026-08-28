@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 08:56:18 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/29 14:52:54 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/27 15:17:26 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class Animal
         std::string m_type;
     public:
         Animal();
-        Animal( const std::string type );
+        Animal( const std::string &type );
         Animal( const Animal& other);
         Animal& operator=( const Animal& other);
         virtual ~Animal();

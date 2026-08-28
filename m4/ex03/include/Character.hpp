@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/30 08:41:08 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/31 07:52:48 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/28 17:54:55 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Character : public ICharacter
         std::string m_name;
         AMateria* m_inventory[4];
     public:
-        Character( std::string const name );
+        Character( std::string const &name );
         Character( Character const & other );
         Character& operator=( Character const & other );
         ~Character();
