@@ -1,0 +1,15 @@
+## M6 ##
+
+-- EX00 -- 
+
+Tasks :
+
+- Implement convert static function :
+    - Display char : done
+    - Display int
+    - Display float
+    - Display double
+
+
+return 1 = Impossible
+return 2 = Non displayable
