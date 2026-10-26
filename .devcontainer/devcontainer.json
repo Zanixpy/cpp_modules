@@ -4,7 +4,7 @@
     "dockerfile": "Dockerfile"
   },
 
-  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "workspaceFolder": "/workspaces/cpp",
 
   "customizations": {
     "vscode": {

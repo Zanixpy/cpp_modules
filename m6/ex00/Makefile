@@ -1,6 +1,6 @@
-CXXCXX = c++
+CXX = c++
 
-CXXFLAGS = -g3 -Wall -Werror -Wextra -std=c++98 -Wshadow -Wno-shadow
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
 HEADERS = include
 INCLUDE = -I $(HEADERS)
@@ -9,6 +9,8 @@ NAME = ex00
 
 SRC = 	src/main.cpp \
 		src/ScalarConverter.cpp \
+		src/checker.cpp \
+		src/print.cpp
 		
 OBJS = $(SRC:.cpp=.o)
 
