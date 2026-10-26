@@ -4,7 +4,6 @@
 #include <iostream>
 
 template< typename T> 
-
 void swap(T &a, T &b)
 {
     T tmp = a;
@@ -13,7 +12,7 @@ void swap(T &a, T &b)
 }
 
 template< typename T>
-T const & min(T const &a, T const &b)
+T min(T const &a, T const &b)
 {
     if (a == b)
         return b;
@@ -21,7 +20,7 @@ T const & min(T const &a, T const &b)
 }
 
 template< typename T>
-T const & max(T const &a, T const &b)
+T max(T const &a, T const &b)
 {
     if (a == b)
         return b;
