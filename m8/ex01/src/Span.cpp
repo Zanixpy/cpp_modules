@@ -30,7 +30,7 @@ Span::~Span()
 
 void Span::addNumber( unsigned int n )
 {
-    if (m_storage.size() >= m_max_n)
+    if (m_storage.size() == m_max_n)
         throw std::runtime_error("Array is full");
     m_storage.push_back(n);
 }

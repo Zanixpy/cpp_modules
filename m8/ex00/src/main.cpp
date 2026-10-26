@@ -4,7 +4,7 @@
 
 int main()
 {
-    
+
     std::cout << "=== Test wit std::vector ===" << std::endl;
     std::vector<int> v;
     v.push_back(10);
