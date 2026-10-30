@@ -1,29 +1,30 @@
 CXX = c++
-
 CXXFLAGS = -Wall -Werror -Wextra -std=c++98
 
-HEADERS = include
-INCLUDE = -I $(HEADERS)
+INCLUDES = -I srcs/class_bitcoin
 
 NAME = btc
 
-SRC = 	src/main.cpp \
-		
-OBJS = $(SRC:.cpp=.o)
+SRC = 	srcs/main.cpp \
+	srcs/class_bitcoin/BitcoinExchange.cpp
+
+OBJDIR = objs
+OBJS = $(SRC:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) -o $(NAME) $(OBJS)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) $(INCLUDE) -c $< -o $@
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(dir $@)
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
-	-rm -rf $(OBJS)
+	rm -rf $(OBJDIR)
 
 fclean: clean
-	-rm -rf $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 

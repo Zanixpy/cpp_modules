@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/27 11:56:29 by omawele           #+#    #+#             */
-/*   Updated: 2026/07/27 15:09:08 by omawele          ###   ########.fr       */
+/*   Updated: 2026/10/26 13:37:25 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <fstream>
 #include <cstring>
 
-int main( int ac, char **av)
+int main( int ac, char **av) 
 {
     if (ac != 4)
     {
