@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 08:56:18 by omawele           #+#    #+#             */
-/*   Updated: 2026/08/27 14:58:08 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/29 18:34:29 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ class WrongAnimal
         ~WrongAnimal();
         const std::string& getType() const;
         void setType(const std::string type);
-        virtual void makeSound() const;
+        void makeSound() const;
 };
 
 

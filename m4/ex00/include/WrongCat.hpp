@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 09:27:00 by omawele           #+#    #+#             */
-/*   Updated: 2026/08/27 14:57:29 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/29 18:34:21 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class WrongCat : public WrongAnimal
         WrongCat( const WrongCat& other );
         WrongCat& operator=( const WrongCat& other );
         ~WrongCat();
-        virtual void makeSound() const;
+        void makeSound() const;
 };
 
 

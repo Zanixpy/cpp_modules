@@ -1,6 +1,6 @@
 CXX = c++
 
-CXXFLAGS = -g3 -Wall -Wextra -Werror -Wshadow -Wno-shadow
+CXXFLAGS = -g3 -Wall -Wextra -Werror -Wshadow -Wno-shadow -std=c++98
 
 SRC =	src/main.cpp		\
 		src/Cure.cpp		\

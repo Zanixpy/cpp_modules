@@ -1,7 +1,5 @@
 // main.cpp
 #include "class_bitcoin/BitcoinExchange.hpp"
-#include <exception>
-
 
 int main(int ac, char ** av) 
 {

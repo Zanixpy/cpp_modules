@@ -57,8 +57,10 @@ bool isDoubleLiteral(std::string const &s)
 static double strToDouble(const std::string &s)
 {
     double tmp;
+
     std::stringstream str(s);
     str >> tmp;
+    
     return tmp;
 }
 
@@ -66,7 +68,9 @@ static int getYear(const std::string &s)
 {
     std::stringstream ss(s);
     std::string year;
+
     std::getline(ss, year, '-');
+
     return atoi(year.c_str());
 }
 
@@ -74,8 +78,10 @@ static int getMonth(const std::string &s)
 {
     std::stringstream ss(s);
     std::string month;
+
     for (int i = 0; i < 2; i++) 
         std::getline(ss, month, '-');
+
     return atoi(month.c_str());
 }
 
@@ -83,8 +89,12 @@ static int getDay(const std::string &s)
 {
     std::stringstream ss(s);
     std::string day;
+
     for (int i = 0; i < 3; i++) 
         std::getline(ss, day, '-');
+
+    day = day.substr(0, 2);
+
     return atoi(day.c_str());
 }
 
@@ -97,10 +107,10 @@ static bool isLeap(int year)
     return (year % 4 == 0);
 }
 
-
 static std::string const createDate(int year, int month, int day)
 {
         std::stringstream date;
+
         if (day < 10 && month < 10)
             date << year << "-0" << month << "-0" << day;
         else if (day < 10)
@@ -109,6 +119,7 @@ static std::string const createDate(int year, int month, int day)
             date << year << "-0" << month << '-' << day;
         else
             date << year << '-' << month << '-' << day;
+
         return date.str();
 }
 
@@ -117,9 +128,15 @@ static bool verifDateFormat(std::string const &s)
         std::stringstream ss(s);
         std::string date;
         int count = 0;
+
         std::getline(ss, date, '|');
+
+        if (date.empty())
+            return false;
+
         if (date[date.size() - 1] == ' ')
             date.erase(date.size() - 1, 1);
+
         for (int i = 0; date[i]; i++) 
         {
             while (std::isdigit(date[i]))
@@ -131,8 +148,31 @@ static bool verifDateFormat(std::string const &s)
             else
                 return false;
         }
+
         if (count != 2)
             return false;
+        
+        std::stringstream sss(s);
+        std::string year;
+        std::string month;
+        std::string day;
+
+        for (int i = 0; i < 3; i++)
+        {
+            if (i == 0)
+                std::getline(sss, year, '-');
+            else if (i == 1)
+                std::getline(sss, month, '-');
+            else if (i == 2)
+            {
+                std::getline(sss, day, '-');
+                day = day.substr(0, 2);
+            }
+        }
+        
+        if (year.size() != 4 || month.size() != 2 || day.size() != 2 || !isIntLiteral(day))
+            return false;
+
         return true;
 }
 
@@ -149,7 +189,7 @@ static bool isValidDate(std::string const &s)
         return false;
     if ((month == 2 && isLeap(year) && day > 29) || (month == 2 && isLeap(year) == false && day > 28))
         return false;
-    if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31)
+    if (year < 1000 || month < 1 || month > 12 || day < 1 || day > 31)
         return false;
     return true;
 }
@@ -158,14 +198,18 @@ static bool isValidValue(std::string const &s)
 {
         std::stringstream ss(s);
         std::string value;
+
         for (int i = 0 ; i < 2 ; i++) 
             std::getline(ss, value, '|');
+
         value.erase(0, 1);
         if (isDoubleLiteral(value) == false && isIntLiteral(value) == false)
             return false;
+
         double d = strToDouble(value);
         if (d < 0 || d > 1000)
-            return false;      
+            return false;
+
     return true;
 }
 
@@ -173,9 +217,12 @@ static std::string const getDate(std::string const &s)
 {
     std::stringstream ss(s);
     std::string date;
+
     std::getline(ss, date, '|');
+
     if (date[date.size() - 1] == ' ')
         date.erase(date.size() - 1, 1);
+
     return date;
 }
 
@@ -183,15 +230,28 @@ static double getValue(std::string const &s)
 {
     std::stringstream ss(s);
     std::string value;
+
     for (int i = 0 ; i < 2 ; i++) 
         std::getline(ss, value, '|');
+
     if (!ss.eof())
     {
         ss.clear();
         throw std::runtime_error("Error in getValue");
     }
-    double d = strToDouble(value);
-    return d;
+
+    return strToDouble(value);
+}
+
+static bool isValidFormat(std::string const &s)
+{
+    if (!isValidDate(s))
+        std::cout << "Error: date invalid, [0-9] => YYYY \n";
+    else if (!isValidValue(s))
+        std::cout << "Error: value invalid, range [0 : 1000]\n";
+    else
+        return true;
+    return false;
 }
 
 // CTOR/DTOR
@@ -199,20 +259,29 @@ static double getValue(std::string const &s)
 BitcoinExchange::BitcoinExchange() 
 {
     _min_year = 10000;
+    _max_year = 0;
     std::ifstream data("external/data.csv");
-    if (!data.is_open())
-        throw std::runtime_error("Unable to open file!");
     std::string buffer;
+    int tmp;
+
+    if (!data.is_open()) 
+        throw std::runtime_error("Unable to open file!");
+
     std::getline(data, buffer);
+
     while (std::getline(data, buffer)) 
     {
-        int tmp = getYear(buffer);
-        if (tmp < _min_year)
+        tmp = getYear(buffer);
+        if (tmp < _min_year) 
             _min_year = tmp;
+        if (tmp > _max_year) 
+            _max_year = tmp;
+
         std::string key =  buffer.substr(0, buffer.find(","));
         double value = strToDouble(buffer.substr(buffer.find(",") + 1));
         _data_er[key] = value;
     }
+
     if (!data.eof())
     {
         data.close();
@@ -221,10 +290,10 @@ BitcoinExchange::BitcoinExchange()
     data.close();
 }
 
-BitcoinExchange::BitcoinExchange( BitcoinExchange const & other )
-{
-    _data_er.insert(other._data_er.begin(), other._data_er.end());
-}
+BitcoinExchange::BitcoinExchange( BitcoinExchange const & other ) 
+    : _data_er(other._data_er),
+      _min_year(other._min_year),
+      _max_year(other._max_year) {}
 
 BitcoinExchange& BitcoinExchange::operator=( BitcoinExchange const & other )
 {
@@ -232,6 +301,8 @@ BitcoinExchange& BitcoinExchange::operator=( BitcoinExchange const & other )
     {
         _data_er.clear();
         _data_er.insert(other._data_er.begin(), other._data_er.end());
+        _min_year = other._min_year;
+        _max_year = other._max_year;
     }
     return *this;
 }
@@ -242,10 +313,16 @@ BitcoinExchange::~BitcoinExchange() {}
 
 std::map<std::string, double>::iterator BitcoinExchange::findExchangeRate(const std::string &s)
 {
+    if (getYear(s) < _min_year)
+        return _data_er.end();
+
     std::map<std::string, double>::iterator it;
     int year = getYear(s);
-    int month = getMonth(s);
-    int day = getDay(s);
+    int month = (year > _max_year) ? 12 : getMonth(s);
+    int day = (year > _max_year) ? 12 : getDay(s);
+
+    if (year > _max_year) year = _max_year;
+
     while (year >= _min_year) 
     {
         it = _data_er.find(createDate(year, month, day));
@@ -275,22 +352,15 @@ void BitcoinExchange::BitcoinEvaluation(const std::string &s)
     std::string buffer;
     while (std::getline(data, buffer)) 
     {
-        if (isValidDate(buffer) == false)
-            std::cout << "Error: date invalid, range: [0 : +inf[\n";
-        else
+        if (isValidFormat(buffer))
         {
-            if (isValidValue(buffer) == false)
-                std::cout << "Error: value invalid, range [0 : 1000]\n";
+            std::string date = getDate(buffer);
+            double value = getValue(buffer);
+            std::map<std::string, double>::iterator it = findExchangeRate(date);
+            if (it == _data_er.end())
+                std::cout << "Error can't find an exchange rate\n";
             else
-            {
-                std::string date = getDate(buffer);
-                double value = getValue(buffer);
-                std::map<std::string, double>::iterator it = findExchangeRate(date);
-                if (it == _data_er.end())
-                    std::cout << "Can't find a correct exchange rate\n";
-                else
-                    std::cout << date << " => " << value << " = " << value * it->second << '\n'; 
-            }
+                std::cout << date << " => " << value << " = " << value * it->second << '\n'; 
         }
     }
     if (!data.eof())

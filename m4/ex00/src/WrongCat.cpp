@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 09:27:51 by omawele           #+#    #+#             */
-/*   Updated: 2026/08/27 15:00:35 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/29 18:35:32 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,5 @@ WrongCat::~WrongCat()
 
 void WrongCat::makeSound() const
 {
-    std::cout << "ANIMAAAA\n";
+    std::cout << "MIAOUUU\n";
 }

@@ -6,7 +6,7 @@
 /*   By: omawele <omawele@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/29 08:57:03 by omawele           #+#    #+#             */
-/*   Updated: 2026/08/27 14:59:52 by omawele          ###   ########.fr       */
+/*   Updated: 2026/08/29 18:35:19 by omawele          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,5 @@ void WrongAnimal::setType( const std::string type )
 
 void WrongAnimal::makeSound() const
 {
-    std::cout << "MIAOUUU\n";
+    std::cout << "ANIMAAAA\n";
 }

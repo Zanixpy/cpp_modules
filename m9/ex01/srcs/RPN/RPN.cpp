@@ -36,13 +36,24 @@ RPN& RPN::operator=( RPN const & other )
 
 RPN::~RPN() {}
 
+static bool onlyWhitespace(const std::string& s)
+{
+    for (size_t i = 0; s[i]; i++)
+    {
+        if (!std::isspace(s[i]))
+            return false;
+    }
+    return true;
+}
+
+
 // MEMBER FUNCTS
 
 bool RPN::calculation(const std::string &s)
 {
-    if (s.empty() || s.size() < 5)
+    if (s.empty() || s.size() < 5 || onlyWhitespace(s))
     {
-        std::cerr << "Error: empty string or not enough litterals\n";
+        std::cerr << "Error: empty string, only spaces or not enough litterals\n";
         return false;
     }
     for (int i = 0; s[i]; i++) 

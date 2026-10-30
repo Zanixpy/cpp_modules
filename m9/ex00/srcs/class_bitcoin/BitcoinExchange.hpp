@@ -20,6 +20,7 @@ class BitcoinExchange
 private:
     std::map<std::string, double> _data_er;
     int                           _min_year;
+    int                           _max_year;
 
 public:
     BitcoinExchange();
