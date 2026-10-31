@@ -350,9 +350,12 @@ void BitcoinExchange::BitcoinEvaluation(const std::string &s)
         throw std::runtime_error("Unable to open file (av[1])");
 
     std::string buffer;
+    bool        caption = false;
     while (std::getline(data, buffer)) 
     {
-        if (isValidFormat(buffer))
+        if (buffer == "date | value" && caption == false)
+            caption = true;
+        else if (isValidFormat(buffer))
         {
             std::string date = getDate(buffer);
             double value = getValue(buffer);

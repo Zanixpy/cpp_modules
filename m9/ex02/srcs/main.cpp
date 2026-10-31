@@ -44,7 +44,7 @@ int main(int ac, char ** av)
     std::vector<int> vec;
     std::deque<int>  deq;
 
-for (int i = 1; av[i]; i++) 
+    for (int i = 1; av[i]; i++) 
     {
         if (isPositiveInt(av[i]) == false)
         {
